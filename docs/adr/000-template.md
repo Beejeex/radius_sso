@@ -1,47 +1,38 @@
-# ADR-000: Title
+# ADR-NNN: [Short decision title]
 
-## Status
-
-Proposed
-
-## Pre-Implementation Gate
-
-This ADR must be accepted with a passing Design `Document Validation Record` before implementation, test generation, migrations, scripts, fixtures, generated files, or implementation plans start for work affected by this decision. Do not code first and backfill this ADR later.
+**Status:** Proposed
+**Date:** YYYY-MM-DD
+**Deciders:** [Roles or names]
 
 ## Context
 
-Describe the problem, constraints, and forces that make a decision necessary.
+[Describe the situation, constraints, and decision that needs to be made.]
 
 ## Decision
 
-Describe the decision in clear, direct language.
+[State the chosen approach in one clear sentence.]
 
-## Framework Defaults First
+## Rationale
 
-This ADR must follow [Agent Guidance: Framework Defaults First](../project/AGENT_GUIDANCE.md).
-
-Identify the native framework, platform, or mature library feature that normally owns this behavior. Prefer configuration and documented extension points before selecting custom implementation.
-
-If this ADR chooses custom implementation where a default exists, include the exception record:
-
-| Field | Required Content |
-| --- | --- |
-| Requirement | Current requirement that cannot be met by the default feature |
-| Default considered | Framework, platform, or library feature normally responsible |
-| Gap | Exact behavior the default cannot provide |
-| Extension points considered | Configuration, events, callbacks, handlers, policies, filters, or adapters evaluated before replacement |
-| Custom boundary | Smallest component that must be custom |
-| Risk | Security, reliability, compatibility, operability, and maintenance risk added |
-| Tests | Unit, integration, contract, and negative architecture tests required |
-| Owner approval | Design and required domain reviewers |
-| Removal trigger | Condition that would allow replacement with the default later |
-
-## Consequences
-
-Describe the expected benefits, trade-offs, risks, and follow-up work.
+[Explain why this approach fits the current requirement and constraints.]
 
 ## Alternatives Considered
 
-- Default framework/platform option: why it was or was not chosen.
-- Alternative 1: why it was not chosen.
-- Alternative 2: why it was not chosen.
+| Option | Reason accepted or rejected |
+| --- | --- |
+| [Option] | [Reason] |
+
+## Consequences
+
+### Positive
+
+- [Benefit]
+
+### Negative Or Tradeoffs
+
+- [Cost, risk, or limitation]
+
+## Validation And Follow-Up
+
+- [Test, migration, rollout, or review required]
+- [Condition that would cause this decision to be revisited]

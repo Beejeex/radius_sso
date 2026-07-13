@@ -1,0 +1,22 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Common generated output
+node_modules/
+dist/
+build/
+out/
+coverage/
+TestResults/
+bin/
+obj/
+*.log
+
+# Local tooling and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
