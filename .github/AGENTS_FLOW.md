@@ -18,7 +18,7 @@ User request
     |
     +--> @Design -----> architecture and boundary decisions
     |       |
-    |       +---------> @ADRWriter / @Schema / @Security / @Protocol as needed
+    |       +---------> @Schema / @Security as needed
     |
     +--> @TestGen ----> scenarios, test plan, evidence plan
     |
@@ -30,7 +30,7 @@ User request
     |
     +--> @Validate ----> evidence, gaps, readiness, and acceptance handoff
     |
-    +--> @Docs / @Changelog / @StateWriter for recorded outcomes
+    +--> @Docs ----------> specifications, decisions, state, testing, and changelog
 ```
 
 ## Role Ownership
@@ -39,18 +39,16 @@ User request
 | --- | --- | --- |
 | `@Operator` | Routing, scope, prerequisites, and terminal status | Start and close every multi-step chain |
 | `@PM` | Outcomes, priority, milestones, and backlog | `@Analyst` or `@Design` |
-| `@Analyst` | Testable behavior and acceptance criteria | `@SpecWriter` then `@Design` |
-| `@Design` | Architecture, boundaries, and technical direction | `@ADRWriter`, `@Schema`, `@Security`, or implementation |
-| `@SpecWriter` | Specification file edits | `@Analyst` for validation |
-| `@ADRWriter` | ADR file edits after a decision is resolved | `@Design` for validation |
-| `@Schema` / `@SchemaWriter` | Durable data design and schema document edits | `@Migration` or implementation |
-| `@Security` / `@SecurityWriter` | Threats, security decisions, and security records | `@Design` or implementation owner |
+| `@Analyst` | Testable behavior and acceptance criteria | `@Docs` for specification writing, then `@Design` |
+| `@Design` | Architecture, boundaries, and technical direction | `@Docs` for decision writing, then implementation |
+| `@Schema` | Durable data design and persistence constraints | `@Docs` for schema writing, then `@Migration` or implementation |
+| `@Security` | Threats, security decisions, and security records | `@Docs` for security writing, then implementation owner |
 | `@TestGen` | Test scenarios, coverage, and validation plans | `@AppDev` or `@Validate` |
 | `@Scaffold` | Empty project structure and tooling setup | `@TestGen` or implementation owner |
 | `@AppDev` | General production behavior | `@Review` then `@Validate` |
 | `@Review` | Findings, regressions, and residual risk | `@Operator` or owning agent |
 | `@Refactor` | Behavior-preserving restructuring | `@Review` and `@Validate` |
-| `@Docs` / `@Changelog` / `@StateWriter` | Documentation and project-state updates | `@Operator` |
+| `@Docs` | All project documentation, state, testing records, and changelog entries | `@Operator` and content owners |
 | `@Validate` | Evidence-based readiness decision | `@Operator` |
 
 ## Non-Negotiable Gates

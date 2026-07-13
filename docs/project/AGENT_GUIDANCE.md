@@ -22,7 +22,7 @@ Before implementation begins, the active work must have accepted documentation f
 - ADRs for architecture, security, technology, compatibility, or deployment decisions that affect the work; and
 - a schema document for persisted data, migrations, indexes, constraints, or storage changes.
 
-Accepted means the owning document agent has read the actual file and recorded a passing validation record. Draft, stale, missing, unlinked, or pending documents are blockers unless the user records an explicit exception with risk and follow-up.
+`@Docs` writes the document, while the relevant content owner reads the actual file and records a passing validation record. Draft, stale, missing, unlinked, or pending documents are blockers unless the user records an explicit exception with risk and follow-up.
 
 ## Implementation Rules
 

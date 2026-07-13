@@ -5,4 +5,4 @@ description: Turn clarified product intent into a durable, testable specificatio
 
 # Specification Synthesis
 
-Capture problem, users, scope, non-goals, workflows, states, errors, contracts, security, operational needs, acceptance criteria, and open questions. Route the content to `@SpecWriter`, then have `@Analyst` validate the resulting file. Identify ADR, schema, security, protocol, or testing documents needed before implementation.
+Capture problem, users, scope, non-goals, workflows, states, errors, contracts, security, operational needs, acceptance criteria, and open questions. Route the content to `@Docs`, then have `@Analyst` validate the resulting file. Identify ADR, schema, security, or testing documents needed before implementation.

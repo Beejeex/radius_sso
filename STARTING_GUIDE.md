@@ -38,7 +38,7 @@ Use the repository documents in this order:
 7. `docs/testing/` records evidence, test coverage, and validation gaps.
 8. `docs/changelog/` records delivered user-visible or operational changes.
 
-The owning document agent must validate a document before downstream implementation relies on it. Keep links between related documents current.
+`@Docs` writes project documents from approved content. The relevant content owner must read and validate the actual file before downstream implementation relies on it. Keep links between related documents current.
 
 ## Definition Of Ready
 

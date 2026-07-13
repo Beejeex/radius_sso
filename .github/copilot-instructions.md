@@ -31,6 +31,6 @@ This repository is a generic greenfield project template. The product name, doma
 
 ## Agent Routing
 
-Use `@Operator` as the coordinator for multi-step work. Route requirements to `@PM` and `@Analyst`, design decisions to `@Design`, document writing to the owning writer agent, implementation to `@AppDev`, test planning to `@TestGen`, project setup to `@Scaffold`, review to `@Review`, security review to `@Security`, and final evidence to `@Validate`.
+Use `@Operator` as the coordinator for multi-step work. Route requirements to `@PM` and `@Analyst`, design decisions to `@Design`, all document writing to `@Docs`, implementation to `@AppDev`, test planning to `@TestGen`, project setup to `@Scaffold`, review to `@Review`, security review to `@Security`, and final evidence to `@Validate`.
 
-Optional roles such as protocol, migration, schema, and plugin work apply only when the project explicitly adopts those concerns.
+`@Schema` and `@Migration` apply when the project adopts durable data. Add other specialist roles only when a concrete project requirement justifies them.
