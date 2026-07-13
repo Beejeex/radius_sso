@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This flow keeps product intent, decisions, implementation, and validation connected while the project is still being discovered. The active project state and accepted documents are the source of truth.
+This file defines routing and ownership. The project policy, documentation gates, default-first rule, security rules, and evidence requirements live canonically in [Agent Guidance](../docs/project/AGENT_GUIDANCE.md).
 
 ## Core Chain
 
@@ -13,24 +13,15 @@ User request
 @Operator
     |
     +--> @PM ---------> outcome, scope, priority, backlog
-    |
-    +--> @Analyst ----> behavior, acceptance criteria, specification input
-    |
-    +--> @Design -----> architecture and boundary decisions
-    |       |
-    |       +---------> @Schema / @Security as needed
-    |
-    +--> @TestGen ----> scenarios, test plan, evidence plan
-    |
+    +--> @Analyst ----> behavior, acceptance criteria
+    +--> @Design -----> architecture and boundaries
+    |       +---------> @Schema / @Security when needed
+    +--> @Docs --------> specifications, decisions, state, testing, changelog
+    +--> @TestGen -----> scenarios, test plan, evidence plan
     +--> @Scaffold ----> project structure and harness only
-    |       |
     |       +----------> @AppDev or another approved implementation owner
-    |
     +--> @Review ------> code and design risk review
-    |
-    +--> @Validate ----> evidence, gaps, readiness, and acceptance handoff
-    |
-    +--> @Docs ----------> specifications, decisions, state, testing, and changelog
+    +--> @Validate ----> evidence, gaps, readiness, acceptance handoff
 ```
 
 ## Role Ownership
@@ -39,27 +30,22 @@ User request
 | --- | --- | --- |
 | `@Operator` | Routing, scope, prerequisites, and terminal status | Start and close every multi-step chain |
 | `@PM` | Outcomes, priority, milestones, and backlog | `@Analyst` or `@Design` |
-| `@Analyst` | Testable behavior and acceptance criteria | `@Docs` for specification writing, then `@Design` |
-| `@Design` | Architecture, boundaries, and technical direction | `@Docs` for decision writing, then implementation |
-| `@Schema` | Durable data design and persistence constraints | `@Docs` for schema writing, then `@Migration` or implementation |
-| `@Security` | Threats, security decisions, and security records | `@Docs` for security writing, then implementation owner |
+| `@Analyst` | Testable behavior and acceptance criteria | `@Docs`, then `@Design` |
+| `@Design` | Architecture, boundaries, and technical direction | `@Docs`, `@Schema`, `@Security`, or implementation |
+| `@Docs` | All project documentation and records | Content owner for validation |
+| `@Schema` | Durable data design and persistence constraints | `@Docs`, then `@Migration` or implementation |
+| `@Security` | Threats, security decisions, and security records | `@Docs`, then implementation owner |
 | `@TestGen` | Test scenarios, coverage, and validation plans | `@AppDev` or `@Validate` |
 | `@Scaffold` | Empty project structure and tooling setup | `@TestGen` or implementation owner |
-| `@AppDev` | General production behavior | `@Review` then `@Validate` |
+| `@AppDev` | General production behavior | `@Review`, then `@Validate` |
 | `@Review` | Findings, regressions, and residual risk | `@Operator` or owning agent |
 | `@Refactor` | Behavior-preserving restructuring | `@Review` and `@Validate` |
-| `@Docs` | All project documentation, state, testing records, and changelog entries | `@Operator` and content owners |
+| `@Migration` | Applying accepted durable-data changes | `@Validate` |
 | `@Validate` | Evidence-based readiness decision | `@Operator` |
 
-## Non-Negotiable Gates
+## Routing Rules
 
-- Missing, stale, unaccepted, or unlinked required documents block implementation.
-- Custom replacements for framework or platform behavior require a written exception record.
-- Behavior-changing implementation requires a matching test plan or approved test exception.
-- A validation result must identify what was tested, where, how, and what remains unknown.
-- Agents report evidence; the user owns any required acceptance sign-off.
-- Handoffs must identify the next owner and every unresolved blocker.
-
-## Completion
-
-`@Operator` may close a chain only when the requested behavior, documentation, tests, validation evidence, and project state agree, or when the user has explicitly accepted the recorded risk and follow-up.
+- Use `@Operator` for multi-step work and specialist coordination.
+- Use `@Docs` as the only project-document writer; content owners validate the resulting files.
+- Add a specialist role only when a concrete project requirement justifies it.
+- Handoffs must use the shared format in `.github/prompts/handover.prompt.md`.
